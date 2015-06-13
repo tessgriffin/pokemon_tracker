@@ -1,0 +1,46 @@
+<div class="container team_member_index">
+  <div class="row">
+    <div class="col l12">
+      <h2><%= image_tag current_user.image_url, class: "display_image" %><%= link_to "@#{current_user.username}'s", "https://www.twitter.com/#{current_user.username}" %> Roster</h2><%= link_to "Add New Pokemon", new_team_member_path, class: "btn grey darken-2"%>
+    </div>
+  </div>
+  <table class="bordered">
+    <thead>
+      <tr>
+          <th>Species</th>
+          <th>Nature</th>
+          <th>Level</th>
+          <th>EVs</th>
+          <th>Training:</th>
+          <th>Add EVs?</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><img src="http://pokeapi.co/media/img/25.png" /></td>
+        <td>Timid</td>
+        <td>5</td>
+        <td>0</td>
+        <td>Speed + Special Attack</td>
+        <td><%= link_to "Add", edit_team_member_path(1), class: "btn grey darken-2"%></td>
+      </tr>
+      <tr>
+        <td><img src="http://pokeapi.co/media/img/4.png" /></td>
+        <td>Adamant</td>
+        <td>5</td>
+        <td>0</td>
+        <td>Speed + Attack</td>
+        <td><%= link_to "Add", edit_team_member_path(1), class: "btn grey darken-2"%></td>
+      </tr>
+      <tr>
+        <td><img src="http://pokeapi.co/media/img/443.png" /></td>
+        <td>Adamant</td>
+        <td>5</td>
+        <td>0</td>
+        <td>Speed + Attack</td>
+        <td><%= link_to "Add", edit_team_member_path(1), class: "btn grey darken-2"%></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

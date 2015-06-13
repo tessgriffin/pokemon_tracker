@@ -2,8 +2,8 @@
   <div class="nav-wrapper blue-grey darken-4 logo">
     <%= link_to "PokemonTracker", root_path, class: "brand-logo" %>
     <ul id="nav-mobile" class="right">
-        <li><%= link_to "My Team", "#" %></li>
         <% if current_user %>
+          <li><%= link_to "My Team", team_members_path %></li>
           <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
         <% else %>
           <li><%= link_to "Log In with Twitter", "auth/twitter" %></li>
