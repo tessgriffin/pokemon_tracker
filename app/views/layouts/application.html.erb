@@ -9,8 +9,29 @@
 <body>
 
 <%= render :partial => 'layouts/nav' %>
+<div class="footer_height">
+    <div class="container">
+      <% if !flash.empty? %>
+        <div class="row">
+          <div class="col l6 offset-l3">
+            <% flash.each do |type, message| %>
+            <%= content_tag :div, message, class: "#{type} flash_message center-align" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <%= yield %>
+  </div>
 
-<%= yield %>
+  <footer class="page-footer grey darken-3">
+    <div class="footer-copyright">
+      <div class="container">
+      PokemonTracker
+      <a class="grey-text text-lighten-4 right" href="#!">Find on Github</a>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
