@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150613172355) do
+ActiveRecord::Schema.define(version: 20150614220921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pokemon", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "nickname"
+    t.string   "species"
+    t.string   "nature"
+    t.jsonb    "stats",      default: {"hp"=>0, "speed"=>0, "attack"=>0, "defense"=>0, "special_attack"=>0, "special_defense"=>0}
+    t.jsonb    "evs",        default: {"hp"=>0, "speed"=>0, "attack"=>0, "defense"=>0, "special_attack"=>0, "special_defense"=>0}
+    t.integer  "level",      default: 1
+    t.datetime "created_at",                                                                                                       null: false
+    t.datetime "updated_at",                                                                                                       null: false
+  end
+
+  add_index "pokemon", ["user_id"], name: "index_pokemon_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "uid"
@@ -28,4 +42,5 @@ ActiveRecord::Schema.define(version: 20150613172355) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "pokemon", "users"
 end

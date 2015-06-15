@@ -1,0 +1,8 @@
+<%= form_for(pokemon) do |f| %>
+  <% pokemon.evs.each do |name, value| %>
+    <%= hidden_field_tag "pokemon[evs][#{name}]", value %>
+  <% end %>
+  <%= hidden_field_tag "pokemon[evs][#{ev_to_increase}]",
+      pokemon.evs[ev_to_increase] + amount_to_increase %>
+  <%= f.submit "+#{amount_to_increase}", class: "btn grey darken-2" %>
+<% end %>
