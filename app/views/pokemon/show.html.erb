@@ -1,0 +1,46 @@
+<div class="container team_member_index">
+  <div class="row">
+    <div class="col l12">
+      <h2><%= @pokemon.nickname %></h2>
+      <h5>Level: <%= @pokemon.level %></h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col l8">
+      <h3>Stats</h3>
+      <dl>
+        <% @pokemon.stats.each do |name, value| %>
+          <div class="col l6">
+            <dt><h5 class="stats_h5"><%= name %>: <%= value %></h5></dt>
+          </div>
+        <% end %>
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col l6">
+      <h3>Add EVs</h3>
+      <dl class="evs">
+        <% @pokemon.evs.each do |name, value| %>
+          <dt><h5 class="stats_h5"><%= name %>: <%= value %></h5></dt>
+          <dd>
+            <%= render "increase_ev_form", pokemon: @pokemon, ev_to_increase: name, amount_to_increase: 1 %>
+            <%= render "increase_ev_form", pokemon: @pokemon, ev_to_increase: name, amount_to_increase: 2 %>
+            <%= render "increase_ev_form", pokemon: @pokemon, ev_to_increase: name, amount_to_increase: 3 %>
+            <%= render "increase_ev_form", pokemon: @pokemon, ev_to_increase: name, amount_to_increase: 4 %>
+          </dd>
+        <% end %>
+      </dl>
+    </div>
+    <div class="col l6">
+      <h3>Level Up!</h3>
+      <%= form_for @pokemon, url: pokemon_levels_path(@pokemon), method: :post do |f|%>
+        <% @pokemon.stats.each do |name, value| %>
+          <%= f.label "stats[#{name}]", name %>
+          <%= f.number_field "stats[#{name}]", value: 0 %>
+        <% end %>
+        <%= f.submit "Level Up!", class: "btn grey darken-2" %>
+      <% end %>
+    </div>
+  </div>
+</div>

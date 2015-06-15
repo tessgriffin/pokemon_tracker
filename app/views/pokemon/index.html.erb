@@ -1,0 +1,28 @@
+<div class="container team_member_index">
+  <div class="row">
+    <div class="col l12">
+      <h2><%= image_tag current_user.image_url, class: "display_image" %><%= link_to "@#{current_user.username}'s", "https://www.twitter.com/#{current_user.username}" %> Pokemon</h2><%= link_to "Add New Pokemon", new_pokemon_path, class: "btn grey darken-2"%>
+    </div>
+  </div>
+  <table class="bordered">
+    <thead>
+      <tr>
+          <th>Species</th>
+          <th>Nickname</th>
+          <th>Nature</th>
+          <th>Level</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% @pokemon.each do |pokemon| %>
+      <tr>
+        <td><%= link_to image_tag("http://pokeapi.co/media/img/25.png"), pokemon_path(pokemon) %></td>
+        <td><%= pokemon.nickname %></td>
+        <td><%= pokemon.nature %></td>
+        <td><%= pokemon.level %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

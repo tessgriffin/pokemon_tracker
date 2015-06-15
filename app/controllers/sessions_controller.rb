@@ -7,7 +7,7 @@
     if @user && auth.provider == "twitter"
       session[:user_id] = @user.id
       flash.now[:success] = "You successfully logged in."
-      redirect_to team_members_path
+      redirect_to pokemon_index_path
     else
       flash.now[:danger] = @user.errors.full_messages.join(", ")
       redirect_to root_path

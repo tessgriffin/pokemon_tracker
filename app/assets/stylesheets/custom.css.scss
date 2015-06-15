@@ -1,7 +1,7 @@
 body {
   background: image-url("pikachu_bg_opacity.png") no-repeat;
   background-size: cover;
-/*  min-height: 100vh;*/
+  min-height: 100vh;
 }
 
 #footer {
@@ -41,4 +41,32 @@ h2 {
 
 h3 {
   font-size: 2rem !important;
+}
+
+.stats dt {
+  display: inline-block;
+}
+
+.stats dd {
+  display: inline-block;
+  border-right: 2px solid black;
+  padding-right: 10px;
+  margin-right: 10px;
+}
+
+.evs dd {
+  display: inline;
+  margin-left: 0px;
+}
+
+.evs form {
+  display: inline;
+}
+
+.stats_h5 {
+  font-size: 1.25rem;
+}
+
+li {
+  list-style-type: none !important;
 }

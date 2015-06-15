@@ -3,7 +3,7 @@
     <%= link_to "TrackPokemon", root_path, class: "brand-logo" %>
     <ul id="nav-mobile" class="right">
         <% if current_user %>
-          <li><%= link_to "My Team", team_members_path %></li>
+          <li><%= link_to "Your Pokemon", pokemon_index_path %></li>
           <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
         <% else %>
           <li><%= link_to "Log In with Twitter", "auth/twitter" %></li>

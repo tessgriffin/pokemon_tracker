@@ -1,0 +1,52 @@
+<div class="container team_member_index">
+  <div class="row">
+    <h2>Add Pokemon</h2>
+    <%= form_for @pokemon, url: pokemon_index_path do |f| %>
+      <div class="col l6">
+        <%= f.label :species %>
+        <%= f.text_field :species %>
+      </div>
+      <div class="col l6">
+        <%= f.label :nickname %>
+        <%= f.text_field :nickname %>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col l6">
+        <%= f.label :nature %>
+        <%= f.text_field :nature %>
+      </div>
+      <div class="col l6">
+        <%= f.label :level %>
+        <%= f.number_field :level %>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col l2">
+        <%= f.label :hp %>
+        <%= f.number_field "stats[hp]", value: 0 %>
+      </div>
+      <div class="col l2">
+        <%= f.label :attack %>
+        <%= f.number_field "stats[attack]", value: 0 %>
+      </div>
+      <div class="col l2">
+        <%= f.label :defense %>
+        <%= f.number_field "stats[defense]", value: 0 %>
+      </div>
+      <div class="col l2">
+        <%= f.label :special_attack %>
+        <%= f.number_field "stats[special_attack]", value: 0 %>
+      </div>
+      <div class="col l2">
+        <%= f.label :special_defense %>
+        <%= f.number_field "stats[special_defense]", value: 0 %>
+      </div>
+      <div class="col l2">
+        <%= f.label :speed %>
+        <%= f.number_field "stats[speed]", value: 0 %>
+      </div>
+  </div>
+        <%= f.submit "Create Pokemon", class: "btn grey darken-2" %>
+      <% end %>
+</div>
