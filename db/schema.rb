@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150614220921) do
+ActiveRecord::Schema.define(version: 20150615020412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,11 +21,12 @@ ActiveRecord::Schema.define(version: 20150614220921) do
     t.string   "nickname"
     t.string   "species"
     t.string   "nature"
-    t.jsonb    "stats",      default: {"hp"=>0, "speed"=>0, "attack"=>0, "defense"=>0, "special_attack"=>0, "special_defense"=>0}
-    t.jsonb    "evs",        default: {"hp"=>0, "speed"=>0, "attack"=>0, "defense"=>0, "special_attack"=>0, "special_defense"=>0}
-    t.integer  "level",      default: 1
-    t.datetime "created_at",                                                                                                       null: false
-    t.datetime "updated_at",                                                                                                       null: false
+    t.jsonb    "stats",       default: {"hp"=>0, "speed"=>0, "attack"=>0, "defense"=>0, "special_attack"=>0, "special_defense"=>0}
+    t.jsonb    "evs",         default: {"hp"=>0, "speed"=>0, "attack"=>0, "defense"=>0, "special_attack"=>0, "special_defense"=>0}
+    t.integer  "level",       default: 1
+    t.datetime "created_at",                                                                                                        null: false
+    t.datetime "updated_at",                                                                                                        null: false
+    t.integer  "national_id"
   end
 
   add_index "pokemon", ["user_id"], name: "index_pokemon_on_user_id", using: :btree
