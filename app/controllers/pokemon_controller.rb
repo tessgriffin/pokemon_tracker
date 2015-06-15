@@ -10,6 +10,9 @@ class PokemonController < ApplicationController
   def create
     @pokemon = Pokemon.new(pokemon_params)
     @pokemon.user_id = current_user.id
+    params[:pokemon][:stats].each do |name, value|
+      @pokemon.stats[name] = value.to_i
+    end
     if @pokemon.save
       redirect_to pokemon_index_path
     else
