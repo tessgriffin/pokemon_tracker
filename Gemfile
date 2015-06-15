@@ -12,6 +12,7 @@ gem 'rspec-rails'
 gem 'materialize-sass'
 gem 'omniauth-twitter'
 gem 'figaro'
+gem 'hurley'
 
 gem 'rails_12factor', group: :production
 

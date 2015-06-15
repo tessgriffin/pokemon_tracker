@@ -40,6 +40,7 @@ class PokemonController < ApplicationController
       :nickname,
       :nature,
       :level,
+      :national_id,
       stats: [:hp, :attack, :special_attack, :special_defense, :speed],
       evs: [:hp, :attack, :special_attack, :defense, :special_defense, :speed]
     )

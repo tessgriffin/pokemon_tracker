@@ -2,11 +2,15 @@
   <div class="row">
     <h2>Add Pokemon</h2>
     <%= form_for @pokemon, url: pokemon_index_path do |f| %>
-      <div class="col l6">
+      <div class="col l4">
         <%= f.label :species %>
         <%= f.text_field :species %>
       </div>
-      <div class="col l6">
+      <div class="col l4">
+        <%= f.label "National Id" %>
+        <%= f.number_field :national_id %>
+      </div>
+      <div class="col l4">
         <%= f.label :nickname %>
         <%= f.text_field :nickname %>
       </div>

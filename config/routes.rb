@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :pokemon, only: [:index, :new, :create, :show, :update] do
     resources :levels, only: :create
   end
+  resources :species
 
   get "auth/:provider/callback", to: "sessions#create"
   get "login",      to: "sessions#new"
