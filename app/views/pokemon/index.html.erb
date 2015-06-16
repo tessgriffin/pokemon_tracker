@@ -17,7 +17,7 @@
     <tbody>
     <% @pokemon.each do |pokemon| %>
       <tr>
-        <td><%= link_to image_tag("http://pokeapi.co/media/img/#{pokemon.national_id}.png"), pokemon_path(pokemon) %></td>
+        <td><%= link_to image_tag("http://pokeapi.co/media/img/#{pokemon.species.national_id}.png"), pokemon_path(pokemon) %></td>
         <td><%= pokemon.nickname %></td>
         <td><%= pokemon.nature %></td>
         <td><%= pokemon.level %></td>

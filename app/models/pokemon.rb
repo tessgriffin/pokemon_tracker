@@ -1,8 +1,11 @@
 class Pokemon < ActiveRecord::Base
   belongs_to :user
+  belongs_to :species
 
   def nickname
-    super.presence || species
+    if species != nil
+      super.presence || species.name
+    end
   end
 
   def evs=(new_evs)

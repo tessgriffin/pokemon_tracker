@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150615020412) do
+ActiveRecord::Schema.define(version: 20150616030907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,17 +19,23 @@ ActiveRecord::Schema.define(version: 20150615020412) do
   create_table "pokemon", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "nickname"
-    t.string   "species"
     t.string   "nature"
-    t.jsonb    "stats",       default: {"hp"=>0, "speed"=>0, "attack"=>0, "defense"=>0, "special_attack"=>0, "special_defense"=>0}
-    t.jsonb    "evs",         default: {"hp"=>0, "speed"=>0, "attack"=>0, "defense"=>0, "special_attack"=>0, "special_defense"=>0}
-    t.integer  "level",       default: 1
-    t.datetime "created_at",                                                                                                        null: false
-    t.datetime "updated_at",                                                                                                        null: false
-    t.integer  "national_id"
+    t.jsonb    "stats",      default: {"hp"=>0, "speed"=>0, "attack"=>0, "defense"=>0, "special_attack"=>0, "special_defense"=>0}
+    t.jsonb    "evs",        default: {"hp"=>0, "speed"=>0, "attack"=>0, "defense"=>0, "special_attack"=>0, "special_defense"=>0}
+    t.integer  "level",      default: 1
+    t.datetime "created_at",                                                                                                       null: false
+    t.datetime "updated_at",                                                                                                       null: false
+    t.integer  "species_id"
   end
 
   add_index "pokemon", ["user_id"], name: "index_pokemon_on_user_id", using: :btree
+
+  create_table "species", force: :cascade do |t|
+    t.string   "name"
+    t.string   "national_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "uid"
