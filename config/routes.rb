@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root to: "home#home"
-  resources :team_members
   resources :pokemon do
     resources :levels, only: :create
   end

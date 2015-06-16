@@ -43,9 +43,8 @@ class PokemonController < ApplicationController
 
   def destroy
     @pokemon = Pokemon.find(params[:id])
-    pokemon_name = @pokemon.nickname
-    @pokemon.destroy
-    flash[:danger] = "#{pokemon_name} deleted"
+    @pokemon.destroy!
+    flash[:danger] = "#{@pokemon.nickname} deleted"
     redirect_to pokemon_index_path
   end
 

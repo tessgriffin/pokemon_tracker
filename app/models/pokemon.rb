@@ -18,4 +18,8 @@ class Pokemon < ActiveRecord::Base
   def national_id
     species.national_id
   end
+
+  def nature_name
+    nature.name
+  end
 end

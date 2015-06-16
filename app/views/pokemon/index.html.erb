@@ -20,7 +20,7 @@
       <tr>
         <td><%= link_to image_tag("http://pokeapi.co/media/img/#{pokemon.national_id}.png"), pokemon_path(pokemon) %></td>
         <td><%= pokemon.nickname %></td>
-        <td><%= pokemon.nature.name %></td>
+        <td><%= pokemon.nature_name %></td>
         <td><%= pokemon.level %></td>
         <td><%= link_to "Delete", pokemon_path(pokemon), method: :delete, class: "btn grey darken-2" %></td>
       </tr>
