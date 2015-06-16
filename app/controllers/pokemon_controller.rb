@@ -18,6 +18,7 @@ class PokemonController < ApplicationController
       @pokemon.stats[name] = value.to_i
     end
     if @pokemon.save
+      flash[:success] = "#{@pokemon.nickname} created"
       redirect_to pokemon_index_path
     else
       flash[:error] = @pokemon.errors.full_messages.join(", ")
@@ -32,11 +33,20 @@ class PokemonController < ApplicationController
   def update
     @pokemon = Pokemon.find(params[:id])
     if @pokemon.update(pokemon_params)
+      flash[:success] = "#{@pokemon.nickname} updated"
       redirect_to @pokemon
     else
       flash[:errors] = @pokemon.errors.full_messages.join(", ")
       render show
     end 
+  end
+
+  def destroy
+    @pokemon = Pokemon.find(params[:id])
+    pokemon_name = @pokemon.nickname
+    @pokemon.destroy
+    flash[:danger] = "#{pokemon_name} deleted"
+    redirect_to pokemon_index_path
   end
 
   private
