@@ -1,5 +1,4 @@
 class ParserService
-
   def self.parse(array)
     array.map do |pokemon|
       inner_array = []
