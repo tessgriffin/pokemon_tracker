@@ -1,8 +1,12 @@
-class SpeciesService
+class ApiSpeciesService
   attr_reader :connection
 
   def initialize
     @connection = Hurley::Client.new('http://pokeapi.co/api/v1')
+  end
+
+  def pokedex
+    parse(connection.get('pokedex/1').body)
   end
 
   def species(id)
