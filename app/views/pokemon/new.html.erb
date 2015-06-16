@@ -4,7 +4,7 @@
     <%= form_for @pokemon, url: pokemon_index_path do |f| %>
       <div class="col l6">
         <%= f.label :species_id %>
-        <%= f.select(:species_id, options_for_select(@parsed_array), class: "browser-default")%>
+        <%= f.select(:species_id, options_for_select(@parsed_array))%>
       </div>
       <div class="col l6">
         <%= f.label :nickname %>
@@ -13,8 +13,8 @@
   </div>
   <div class="row">
       <div class="col l6">
-        <%= f.label :nature %>
-        <%= f.text_field :nature %>
+        <%= f.label :nature_id %>
+        <%= f.select(:nature_id, options_from_collection_for_select(@natures, "id", "name"))%>
       </div>
       <div class="col l6">
         <%= f.label :level %>
