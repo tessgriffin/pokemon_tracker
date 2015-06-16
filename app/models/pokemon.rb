@@ -1,6 +1,7 @@
 class Pokemon < ActiveRecord::Base
   belongs_to :user
   belongs_to :species
+  belongs_to :nature
 
   def nickname
     if species != nil

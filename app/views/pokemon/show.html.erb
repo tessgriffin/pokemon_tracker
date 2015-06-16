@@ -1,13 +1,15 @@
 <div class="container team_member_index">
   <div class="row">
-    <div class="col l12">
-      <h2><%= @pokemon.nickname %></h2>
-      <h5>Level: <%= @pokemon.level %></h5>
+    <div class="col l2 pokemon_show_image">
+      <%= image_tag("http://pokeapi.co/media/img/#{@pokemon.national_id}.png")%>
     </div>
-  </div>
-  <div class="row">
-    <div class="col l8">
-      <h3>Stats</h3>
+    <div class="col l3">
+      <h2><%= @pokemon.nickname %></h2>
+      <h5>Level:  <%= @pokemon.level %></h5>
+      <h5>Nature: <%= @pokemon.nature.name %></h5>
+    </div>
+    <div class="col l7">
+      <h4>Stats</h4>
       <dl>
         <% @pokemon.stats.each do |name, value| %>
           <div class="col l6">
@@ -17,9 +19,10 @@
       </dl>
     </div>
   </div>
+  <hr>
   <div class="row">
     <div class="col l6">
-      <h3>Add EVs</h3>
+      <h4>Add EVs</h4>
       <dl class="evs">
         <% @pokemon.evs.each do |name, value| %>
           <dt><h5 class="stats_h5"><%= name %>: <%= value %></h5></dt>
@@ -33,7 +36,7 @@
       </dl>
     </div>
     <div class="col l6">
-      <h3>Level Up!</h3>
+      <h4>Level Up!</h4>
       <%= form_for @pokemon, url: pokemon_levels_path(@pokemon), method: :post do |f|%>
         <% @pokemon.stats.each do |name, value| %>
           <%= f.label "stats[#{name}]", name %>

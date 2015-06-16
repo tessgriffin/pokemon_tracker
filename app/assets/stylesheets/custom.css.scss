@@ -1,8 +1,45 @@
+/*-----------------------------------------
+Main Styles
+------------------------------------------*/
+
 body {
   background: image-url("pikachu_bg_opacity.png") no-repeat;
   background-size: cover;
   min-height: 100vh;
 }
+
+h2 {
+  font-size: 2.75rem !important;
+}
+
+h3 {
+  font-size: 2rem !important;
+}
+
+h4 {
+  font-size: 1.5rem !important;
+}
+
+h5 {
+  font-size: 1.20rem !important;
+}
+
+li {
+  list-style-type: none !important;
+}
+
+select {
+  display: block !important;
+}
+
+.team_member_index {
+  background: rgba(255, 255, 255, .5);
+  padding: 0px 20px 20px 20px !important;
+}
+
+/*-----------------------------------------
+Footer
+------------------------------------------*/
 
 #footer {
   background-color: #101010;
@@ -22,26 +59,17 @@ body {
   min-height: 85vh;
 }
 
+/*-----------------------------------------
+Navbar
+------------------------------------------*/
+
 .brand-logo {
   margin-left: 10px;
 }
 
-.team_member_index {
-  background: rgba(255, 255, 255, .5);
-  padding: 0px 20px 20px 20px !important;
-}
-
-.display_image {
-  border-radius: 50%;
-}
-
-h2 {
-  font-size: 2.75rem !important;
-}
-
-h3 {
-  font-size: 2rem !important;
-}
+/*-----------------------------------------
+Pokemon Show Page
+------------------------------------------*/
 
 .stats dt {
   display: inline-block;
@@ -67,10 +95,19 @@ h3 {
   font-size: 1.25rem;
 }
 
-li {
-  list-style-type: none !important;
+/*-----------------------------------------
+Images
+------------------------------------------*/
+
+.display_image {
+  border-radius: 50%;
 }
 
-select {
-  display: block !important;
+.pokemon_show_image img{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin-top: 40px;
 }

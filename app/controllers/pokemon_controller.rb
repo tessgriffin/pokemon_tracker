@@ -7,6 +7,7 @@ class PokemonController < ApplicationController
     @pokemon = Pokemon.new
     @species = ApiSpecies.all
     @parsed_array = ParserService.parse(@species.pokemon)
+    @natures = Nature.all
   end
 
   def create
@@ -43,7 +44,7 @@ class PokemonController < ApplicationController
   def pokemon_params
     params.require(:pokemon).permit(
       :nickname,
-      :nature,
+      :nature_id,
       :level,
       :species_id,
       stats: [:hp, :attack, :special_attack, :special_defense, :speed],
