@@ -13,7 +13,7 @@
 <div class="footer_height">
     <div class="container">
       <% if !flash.empty? %>
-        <div class="row">
+        <div class="row flash_row">
           <div class="col l6 offset-l3">
             <% flash.each do |type, message| %>
             <%= content_tag :div, message, class: "#{type} flash_message center-align" %>

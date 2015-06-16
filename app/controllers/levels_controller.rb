@@ -6,6 +6,7 @@ class LevelsController < ApplicationController
       pokemon.stats[name] += value.to_i
     end
     pokemon.save!
+    flash[:success] = "Successfully Leveled Up"
     redirect_to pokemon
   end
 end

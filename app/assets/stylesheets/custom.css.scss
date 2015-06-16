@@ -111,3 +111,24 @@ Images
   border-radius: 50%;
   margin-top: 40px;
 }
+
+/*-----------------------------------------
+Flashes
+------------------------------------------*/
+
+.flash_message {
+  font-size: 1.5rem !important;
+}
+
+.success {
+  background-color: #81c784;
+}
+
+.danger {
+  background-color: #b71c1c;
+  color: white;
+}
+
+.flash_row {
+  margin-bottom: 0px !important;
+}

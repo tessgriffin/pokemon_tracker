@@ -6,10 +6,10 @@
       @user = User.find_or_create_by_auth(auth)
     if @user && auth.provider == "twitter"
       session[:user_id] = @user.id
-      flash.now[:success] = "You successfully logged in."
+      flash[:success] = "You successfully logged in."
       redirect_to pokemon_index_path
     else
-      flash.now[:danger] = @user.errors.full_messages.join(", ")
+      flash[:danger] = @user.errors.full_messages.join(", ")
       redirect_to root_path
     end
   end
@@ -19,7 +19,8 @@
 
   def destroy
     session.clear
-    redirect_to root_path, danger: "You successfully logged out."
+    flash[:success] = "You've successfully logged out"
+    redirect_to root_path
   end
 
 

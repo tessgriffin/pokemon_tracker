@@ -11,6 +11,7 @@
           <th>Nickname</th>
           <th>Nature</th>
           <th>Level</th>
+          <th>Delete</th>
       </tr>
     </thead>
 
@@ -21,6 +22,7 @@
         <td><%= pokemon.nickname %></td>
         <td><%= pokemon.nature.name %></td>
         <td><%= pokemon.level %></td>
+        <td><%= link_to "Delete", pokemon_path(pokemon), method: :delete, class: "btn grey darken-2" %></td>
       </tr>
     <% end %>
     </tbody>
