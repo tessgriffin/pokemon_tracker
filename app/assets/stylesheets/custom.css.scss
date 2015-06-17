@@ -108,7 +108,7 @@ Images
   margin-right: auto;
   display: block;
   border: 2px solid #B3A80E;
-  border-radius: 50%;
+  border-radius: 10px;
   margin-top: 40px;
   max-width: 150px;
   padding: 20px;
@@ -134,4 +134,8 @@ Flashes
 
 .flash_row {
   margin-bottom: 0px !important;
+}
+
+.small-btn {
+  padding: 0px 15px !important;
 }

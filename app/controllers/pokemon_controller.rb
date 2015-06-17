@@ -13,7 +13,13 @@ class PokemonController < ApplicationController
   def create
     @pokemon = Pokemon.new(pokemon_params)
     @pokemon.user_id = current_user.id
-    @pokemon.species_id = Species.find_by(national_id: params[:pokemon][:species_id]).id
+    if params[:a_to_h] != ""
+      @pokemon.species_id = Species.find_by(national_id: params[:a_to_h]).id
+    elsif params[:i_to_r] != ""
+      @pokemon.species_id = Species.find_by(national_id: params[:i_to_r]).id
+    elsif params[:s_to_z] != ""
+      @pokemon.species_id = Species.find_by(national_id: params[:s_to_z]).id
+    end
     params[:pokemon][:stats].each do |name, value|
       @pokemon.stats[name] = value.to_i
     end
@@ -28,6 +34,7 @@ class PokemonController < ApplicationController
 
   def show
     @pokemon = Pokemon.find(params[:id])
+    @species = Species.evs_given
   end
 
   def update

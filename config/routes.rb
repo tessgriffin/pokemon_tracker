@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: "home#home"
   resources :pokemon do
     resources :levels, only: :create
+    resources :increase_evs, only: :create
   end
   resources :species
 
