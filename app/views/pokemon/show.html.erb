@@ -1,7 +1,7 @@
 <div class="container team_member_index">
   <div class="row">
     <div class="col l2 pokemon_show_image">
-      <%= image_tag("http://pokeapi.co/media/img/#{@pokemon.national_id}.png")%>
+      <%= image_tag("http://www.pkparaiso.com/imagenes/xy/sprites/animados/#{@pokemon.species_name}.gif")%>
     </div>
     <div class="col l3">
       <h2><%= @pokemon.nickname %></h2>
@@ -21,7 +21,7 @@
   </div>
   <hr>
   <div class="row">
-    <div class="col l6">
+    <div class="col l3">
       <h4>Add EVs</h4>
       <dl class="evs">
         <% @pokemon.evs.each do |name, value| %>
@@ -34,8 +34,18 @@
           </dd>
         <% end %>
       </dl>
+      </div>
+      <div class="col l5">
+      <h4>Which Pokemon did you fight?</h4>
+      <%= form_for @pokemon, url: pokemon_increase_evs_path(@pokemon), method: :post do |f| %>
+        <%= f.label :evs %>
+        <%= f.select(:evs, options_from_collection_for_select(@species, "effort_value_id", "name"))%>
+        <%= label_tag "amount" %>
+        <%= number_field_tag "amount", 1, min: 1 %>
+        <%= f.submit "Log", class: "btn grey darken-2" %>
+      <% end %>
     </div>
-    <div class="col l6">
+    <div class="col l4">
       <h4>Level Up!</h4>
       <%= form_for @pokemon, url: pokemon_levels_path(@pokemon), method: :post do |f|%>
         <% @pokemon.stats.each do |name, value| %>

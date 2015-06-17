@@ -3,12 +3,18 @@ class Pokemon < ActiveRecord::Base
   belongs_to :species
   belongs_to :nature
 
+  default_scope -> { order('id ASC') }
+
   def nickname
     if species != nil
       super.presence || species.name
     else
       super
     end
+  end
+
+  def species_name
+    species.name
   end
 
   def evs=(new_evs)

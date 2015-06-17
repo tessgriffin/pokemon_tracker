@@ -4,5 +4,5 @@
   <% end %>
   <%= hidden_field_tag "pokemon[evs][#{ev_to_increase}]",
       pokemon.evs[ev_to_increase] + amount_to_increase %>
-  <%= f.submit "+#{amount_to_increase}", class: "btn grey darken-2" %>
+  <%= f.submit "+#{amount_to_increase}", class: "btn grey darken-2 small-btn" %>
 <% end %>

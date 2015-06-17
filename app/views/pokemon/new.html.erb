@@ -3,8 +3,18 @@
     <h2>Add Pokemon</h2>
     <%= form_for @pokemon, url: pokemon_index_path do |f| %>
       <div class="col l6">
-        <%= f.label :species_id %>
-        <%= f.select(:species_id, options_for_select(@parsed_array))%>
+        <div class="col l4">
+          <%= label_tag :a_to_h %>
+          <%= select_tag(:a_to_h, options_for_select(@parsed_array[0..317]), include_blank: "A-H")%>
+        </div>
+        <div class="col l4">
+          <%= label_tag :i_to_r %>
+          <%= select_tag(:i_to_r, options_for_select(@parsed_array[318..566]), include_blank: "I-R")%>
+        </div>
+        <div class="col l4">
+          <%= label_tag :s_to_z %>
+          <%= select_tag(:s_to_z, options_for_select(@parsed_array[567..-1]), include_blank: "S-Z")%>
+        </div>
       </div>
       <div class="col l6">
         <%= f.label :nickname %>
@@ -18,7 +28,7 @@
       </div>
       <div class="col l6">
         <%= f.label :level %>
-        <%= f.number_field :level %>
+        <%= f.number_field :level, min: 1 %>
       </div>
   </div>
   <div class="row">
