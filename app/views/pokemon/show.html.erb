@@ -25,12 +25,12 @@
       <h4>Add EVs</h4>
       <dl class="evs">
         <% @pokemon.evs.each do |name, value| %>
-          <dt><h5 class="stats_h5"><%= name %>: <%= value %></h5></dt>
+          <dt><h5 class="stats_h5 inline"><%= name %>:</h5><h5 class="inline" id="<%= name %>_value"><%= value %></h5></dt>
           <dd>
-            <%= render "increase_ev_form", pokemon: @pokemon, ev_to_increase: name, amount_to_increase: 1 %>
-            <%= render "increase_ev_form", pokemon: @pokemon, ev_to_increase: name, amount_to_increase: 2 %>
-            <%= render "increase_ev_form", pokemon: @pokemon, ev_to_increase: name, amount_to_increase: 3 %>
-            <%= render "increase_ev_form", pokemon: @pokemon, ev_to_increase: name, amount_to_increase: 4 %>
+            <button id="<%= name %>" class="btn ev_inc small-btn grey darken-2" data-value="1" data-stat="<%= name %>">+1</button>
+            <button id="<%= name %>" class="btn ev_inc small-btn grey darken-2" data-value="2" data-stat="<%= name %>">+2</button>
+            <button id="<%= name %>" class="btn ev_inc small-btn grey darken-2" data-value="3" data-stat="<%= name %>">+3</button>
+            <button id="<%= name %>" class="btn ev_inc small-btn grey darken-2" data-value="4" data-stat="<%= name %>">+4</button>
           </dd>
         <% end %>
       </dl>

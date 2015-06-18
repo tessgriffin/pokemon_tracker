@@ -13,6 +13,7 @@ gem 'materialize-sass'
 gem 'omniauth-twitter'
 gem 'figaro'
 gem 'hurley'
+gem "responders"
 
 gem 'rails_12factor', group: :production
 

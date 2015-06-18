@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :pokemon do
     resources :levels, only: :create
     resources :increase_evs, only: :create
+    resource :add_ev, only: :create
   end
   resources :species
 

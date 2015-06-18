@@ -38,6 +38,7 @@ class PokemonController < ApplicationController
   end
 
   def update
+    byebug
     @pokemon = Pokemon.find(params[:id])
     if @pokemon.update(pokemon_params)
       flash[:success] = "#{@pokemon.nickname} updated"
