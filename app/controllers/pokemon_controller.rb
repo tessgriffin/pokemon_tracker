@@ -5,20 +5,19 @@ class PokemonController < ApplicationController
 
   def new
     @pokemon = Pokemon.new
-    @species = ApiSpecies.all
-    @parsed_array = ParserService.parse(@species.pokemon)
+    @species = Species.all
     @natures = Nature.all
   end
 
   def create
     @pokemon = Pokemon.new(pokemon_params)
     @pokemon.user_id = current_user.id
-    if params[:a_to_h] != ""
-      @pokemon.species_id = Species.find_by(national_id: params[:a_to_h]).id
-    elsif params[:i_to_r] != ""
-      @pokemon.species_id = Species.find_by(national_id: params[:i_to_r]).id
-    elsif params[:s_to_z] != ""
-      @pokemon.species_id = Species.find_by(national_id: params[:s_to_z]).id
+    if params[:a_to_h].present?
+      @pokemon.species_id = params[:a_to_h].to_i
+    elsif params[:i_to_r].present?
+      @pokemon.species_id = params[:i_to_r].to_i
+    elsif params[:s_to_z].present?
+      @pokemon.species_id = params[:s_to_z].to_i
     end
     params[:pokemon][:stats].each do |name, value|
       @pokemon.stats[name] = value.to_i

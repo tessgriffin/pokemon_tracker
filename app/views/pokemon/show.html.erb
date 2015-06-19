@@ -9,14 +9,25 @@
       <h5>Nature: <%= @pokemon.nature_name %></h5>
     </div>
     <div class="col l7">
-      <h4>Stats</h4>
-      <dl>
-        <% @pokemon.stats.each do |name, value| %>
-          <div class="col l6">
-            <dt><h5 class="stats_h5"><%= name %>: <%= value %></h5></dt>
-          </div>
-        <% end %>
-      </dl>
+      <table class="bordered valigned">
+        <thead>
+          <tr>
+              <th>HP</th>
+              <th>Attack</th>
+              <th>Defense</th>
+              <th>Special Attack</th>
+              <th>Special Defense</th>
+              <th>Speed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+          <% @pokemon.stats.each do |name, value| %>
+            <td><%= value %></td>
+          <% end %>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
   <hr>

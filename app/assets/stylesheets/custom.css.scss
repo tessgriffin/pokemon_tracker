@@ -70,7 +70,6 @@ Navbar
 /*-----------------------------------------
 Pokemon Show Page
 ------------------------------------------*/
-
 .stats dt {
   display: inline-block;
 }
@@ -95,12 +94,31 @@ Pokemon Show Page
   font-size: 1.25rem;
 }
 
+.valigned {
+  margin-top: 30px;
+}
+
+.left-dropdown {
+  padding-left: 0px !important;
+}
+
+.right-dropdown {
+  padding-right: 0px !important;
+}
+
 /*-----------------------------------------
 Images
 ------------------------------------------*/
 
 .display_image {
   border-radius: 50%;
+  width: 55px;
+  vertical-align: middle;
+}
+
+.this_h2 {
+  display: inline-block; 
+  vertical-align: middle;
 }
 
 .pokemon_show_image img{
