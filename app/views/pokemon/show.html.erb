@@ -4,12 +4,13 @@
       <%= image_tag("http://www.pkparaiso.com/imagenes/xy/sprites/animados/#{@pokemon.species_name}.gif")%>
     </div>
     <div class="col l3">
-      <h2><%= @pokemon.nickname %></h2>
+      <h2 class="low_margin"><%= @pokemon.nickname %></h2>
       <h5>Level:  <%= @pokemon.level %></h5>
       <h5>Nature: <%= @pokemon.nature_name %></h5>
     </div>
     <div class="col l7">
-      <table class="bordered valigned">
+      <h5 class="center-align">Stats</h5>
+      <table class="bordered">
         <thead>
           <tr>
               <th>HP</th>
@@ -28,40 +29,65 @@
           </tr>
         </tbody>
       </table>
+      <h5 class="center-align">EVs</h5>
+      <table class="bordered">
+        <thead>
+          <tr>
+              <th>HP</th>
+              <th>Attack</th>
+              <th>Defense</th>
+              <th>Special Attack</th>
+              <th>Special Defense</th>
+              <th>Speed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+          <% @pokemon.evs.each do |name, value| %>
+            <td class="<%= name %>_value"><%= value %></td>
+          <% end %>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
   <hr>
   <div class="row">
-    <div class="col l3">
+    <div class="col l12">
       <h4>Add EVs</h4>
-      <dl class="evs">
-        <% @pokemon.evs.each do |name, value| %>
-          <dt><h5 class="stats_h5 inline"><%= name %>:</h5><h5 class="inline" id="<%= name %>_value"><%= value %></h5></dt>
-          <dd>
-            <button id="<%= name %>" class="btn ev_inc small-btn grey darken-2" data-value="1" data-stat="<%= name %>">+1</button>
-            <button id="<%= name %>" class="btn ev_inc small-btn grey darken-2" data-value="2" data-stat="<%= name %>">+2</button>
-            <button id="<%= name %>" class="btn ev_inc small-btn grey darken-2" data-value="3" data-stat="<%= name %>">+3</button>
-            <button id="<%= name %>" class="btn ev_inc small-btn grey darken-2" data-value="4" data-stat="<%= name %>">+4</button>
-          </dd>
-        <% end %>
-      </dl>
+        <dl class="evs">
+          <% @pokemon.evs.each do |name, value| %>
+          <div class="col l3 left-dropdown">
+            <dt><h5 class="stats_h5 inline"><%= name %>:</h5><h5 class="inline <%= name %>_value"><%= value %></h5></dt>
+            <dd>
+              <button id="<%= name %>" class="btn ev_inc small-btn grey darken-2" data-value="1" data-stat="<%= name %>">+1</button>
+              <button id="<%= name %>" class="btn ev_inc small-btn grey darken-2" data-value="2" data-stat="<%= name %>">+2</button>
+              <button id="<%= name %>" class="btn ev_inc small-btn grey darken-2" data-value="3" data-stat="<%= name %>">+3</button>
+              <button id="<%= name %>" class="btn ev_inc small-btn grey darken-2" data-value="4" data-stat="<%= name %>">+4</button>
+            </dd>
+          </div>
+          <% end %>
+        </dl>
       </div>
-      <div class="col l5">
-      <h4>Which Pokemon did you fight?</h4>
-      <%= form_for @pokemon, url: pokemon_increase_evs_path(@pokemon), method: :post do |f| %>
-        <%= f.label :evs %>
-        <%= f.select(:evs, options_from_collection_for_select(@species, "effort_value_id", "name"))%>
-        <%= label_tag "amount" %>
-        <%= number_field_tag "amount", 1, min: 1 %>
-        <%= f.submit "Log", class: "btn grey darken-2" %>
-      <% end %>
     </div>
-    <div class="col l4">
+    <div class="row">
+      <div class="col l3">
+        <h4>Horde Battle?</h4>
+        <select id="species">
+          <%= options_from_collection_for_select(@species, "effort_value_id", "name") %>
+        </select>
+        <input type="number" id="amount" min="1" max="100" placeholder="Amount">
+        <button id="log" class="btn small-btn grey darken-2">Log</button>
+      </div>
+    <div class="col l8">
       <h4>Level Up!</h4>
+      <br>
       <%= form_for @pokemon, url: pokemon_levels_path(@pokemon), method: :post do |f|%>
         <% @pokemon.stats.each do |name, value| %>
+          <div class="col l2">
           <%= f.label "stats[#{name}]", name %>
           <%= f.number_field "stats[#{name}]", value: 0 %>
+          </div>
         <% end %>
         <%= f.submit "Level Up!", class: "btn grey darken-2" %>
       <% end %>
