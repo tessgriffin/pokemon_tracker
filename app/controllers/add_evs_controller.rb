@@ -2,11 +2,16 @@ class AddEvsController < ApplicationController
   respond_to :json
 
   def create
-    pokemon = Pokemon.find(params["post"]["pokemonId"].to_i)
-    stat = params["post"]["pokemon"]["ev"]
-    amount = params["post"]["pokemon"]["value"].to_i
-    new_amount = pokemon.evs[stat] += amount
+    stat = params["pokemon"]["ev"]
+    amount = params["pokemon"]["value"].to_i
+    pokemon.evs[stat] += amount
     pokemon.save!
     respond_with pokemon
+  end
+
+  private
+
+  def pokemon
+    @pokemon ||= Pokemon.find(params[:pokemon_id])
   end
 end
