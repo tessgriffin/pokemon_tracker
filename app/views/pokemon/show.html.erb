@@ -1,4 +1,4 @@
-<div class="container team_member_index">
+<div class="container team_member_index" ng-controller="PokemonCtrl" data="<%= @pokemon.evs.to_json %>">
   <div class="row">
     <div class="col l2 pokemon_show_image">
       <%= image_tag("http://www.pkparaiso.com/imagenes/xy/sprites/animados/#{@pokemon.species_name}.gif")%>
@@ -43,9 +43,9 @@
         </thead>
         <tbody>
           <tr>
-          <% @pokemon.evs.each do |name, value| %>
-            <td class="<%= name %>_value"><%= value %></td>
-          <% end %>
+            <td ng-repeat="(name, value) in evs" class="{{name}}_value">
+              {{ value }}
+            </td>
           </tr>
         </tbody>
       </table>
@@ -56,17 +56,22 @@
     <div class="col l12">
       <h4>Add EVs</h4>
         <dl class="evs">
-          <% @pokemon.evs.each do |name, value| %>
-          <div class="col l3 left-dropdown">
-            <dt><h5 class="stats_h5 inline"><%= name %>:</h5><h5 class="inline <%= name %>_value"><%= value %></h5></dt>
+          <div class="col l3 left-dropdown" ng-repeat="(name, value) in evs">
+            <dt>
+              <h5 class="stats_h5 inline">{{name}}:</h5>
+              <h5 class="inline {{name}}_value">{{ value }}</h5>
+            </dt>
             <dd>
-              <button id="<%= name %>" class="btn ev_inc small-btn grey darken-2" data-value="1" data-stat="<%= name %>">+1</button>
-              <button id="<%= name %>" class="btn ev_inc small-btn grey darken-2" data-value="2" data-stat="<%= name %>">+2</button>
-              <button id="<%= name %>" class="btn ev_inc small-btn grey darken-2" data-value="3" data-stat="<%= name %>">+3</button>
-              <button id="<%= name %>" class="btn ev_inc small-btn grey darken-2" data-value="4" data-stat="<%= name %>">+4</button>
+              <add-ev-button amount="1" stat="name" pokemon="<%= @pokemon.id %>"
+                ev-value="evs[name]"></add-ev-button>
+              <add-ev-button amount="2" stat="name" pokemon="<%= @pokemon.id %>"
+                ev-value="evs[name]"></add-ev-button>
+              <add-ev-button amount="3" stat="name" pokemon="<%= @pokemon.id %>"
+                ev-value="evs[name]"></add-ev-button>
+              <add-ev-button amount="4" stat="name" pokemon="<%= @pokemon.id %>"
+                ev-value="evs[name]"></add-ev-button>
             </dd>
           </div>
-          <% end %>
         </dl>
       </div>
     </div>

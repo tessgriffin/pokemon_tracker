@@ -14,6 +14,7 @@ gem 'omniauth-twitter'
 gem 'figaro'
 gem 'hurley'
 gem "responders"
+gem 'angularjs-rails'
 
 gem 'rails_12factor', group: :production
 
