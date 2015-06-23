@@ -26,7 +26,7 @@ class PokemonController < ApplicationController
       flash[:success] = "#{@pokemon.nickname} created"
       redirect_to pokemon_index_path
     else
-      flash[:error] = @pokemon.errors.full_messages.join(", ")
+      flash.now[:error] = @pokemon.errors.full_messages.join(", ")
       render :new
     end
   end
@@ -37,7 +37,6 @@ class PokemonController < ApplicationController
   end
 
   def update
-    byebug
     @pokemon = Pokemon.find(params[:id])
     if @pokemon.update(pokemon_params)
       flash[:success] = "#{@pokemon.nickname} updated"

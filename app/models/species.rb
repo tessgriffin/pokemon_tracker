@@ -1,4 +1,8 @@
 class Species < ActiveRecord::Base
+  validates :name, presence: true
+  validates :national_id, presence: true
+  validates :effort_value_id, numericality: true, allow_blank: true
+
   has_many :pokemon
   belongs_to :effort_value
 
