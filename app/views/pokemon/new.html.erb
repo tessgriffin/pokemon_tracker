@@ -1,7 +1,7 @@
 <div class="container team_member_index">
   <h2>Add Pokemon</h2>
   <div class="row">
-    <%= form_for @pokemon, url: pokemon_index_path do |f| %>
+    <%= form_for @pokemon do |f| %>
       <div class="col l6">
         <div class="col l4 left-dropdown">
           <%= label_tag :a_to_h %>
@@ -28,7 +28,7 @@
       </div>
       <div class="col l6">
         <%= f.label :level %>
-        <%= f.number_field :level, min: 1 %>
+        <%= f.number_field :level, min: 1, max: 100 %>
       </div>
   </div>
   <div class="row">
@@ -57,6 +57,6 @@
         <%= f.number_field "stats[speed]", value: 0 %>
       </div>
   </div>
-        <%= f.submit "Create Pokemon", class: "btn grey darken-2" %>
+        <%= f.submit "Create Pokemon", class: "btn grey darken-2 submit_button" %>
       <% end %>
 </div>
