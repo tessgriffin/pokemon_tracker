@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  validates :username, presence: true
   has_many :pokemon
 
   def self.find_or_create_by_auth(auth)
