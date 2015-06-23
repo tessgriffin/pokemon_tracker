@@ -36,16 +36,16 @@ class PokemonController < ApplicationController
     @species = Species.evs_given
   end
 
-  def update
-    @pokemon = Pokemon.find(params[:id])
-    if @pokemon.update(pokemon_params)
-      flash[:success] = "#{@pokemon.nickname} updated"
-      redirect_to @pokemon
-    else
-      flash[:errors] = @pokemon.errors.full_messages.join(", ")
-      render show
-    end 
-  end
+  # def update
+  #   @pokemon = Pokemon.find(params[:id])
+  #   if @pokemon.update(pokemon_params)
+  #     flash[:success] = "#{@pokemon.nickname} updated"
+  #     redirect_to @pokemon
+  #   else
+  #     flash[:errors] = @pokemon.errors.full_messages.join(", ")
+  #     render show
+  #   end 
+  # end
 
   def destroy
     @pokemon = Pokemon.find(params[:id])
