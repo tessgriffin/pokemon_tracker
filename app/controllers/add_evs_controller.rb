@@ -6,7 +6,7 @@ class AddEvsController < ApplicationController
     amount = params["pokemon"]["value"].to_i
     pokemon.evs[stat] += amount
     pokemon.save!
-    respond_with pokemon
+    respond_with pokemon, location: ""
   end
 
   private

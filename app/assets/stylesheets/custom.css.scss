@@ -70,6 +70,16 @@ Navbar
 /*-----------------------------------------
 Pokemon Show Page
 ------------------------------------------*/
+.glow {
+    animation-name: example;
+    animation-duration: .75s;
+}
+
+@keyframes example {
+    0%   {background-color: none;}
+    50%  {background-color: #81c784;}
+    100% {background-color: none;}
+}
 .stats dt {
   display: inline-block;
 }

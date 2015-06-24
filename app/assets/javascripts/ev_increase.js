@@ -12,6 +12,10 @@ $(document).ready(function(){
       success: function(response) {
         stat = response.stat
         $("." + stat + "_value").text(response.pokemon.evs[stat]);
+        $("." + stat + "_value").toggleClass('glow');
+        setTimeout(function(){
+          $("." + stat + "_value").removeClass("glow");
+        }, 750);
       }
     })
   });

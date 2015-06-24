@@ -54,4 +54,18 @@ RSpec.describe Pokemon, type: :model do
   it "returns name of nature" do 
     expect(pokemon.nature_name).to eq("adamant")
   end
+
+  it "is valid only with evs between 0 and 252" do 
+    pokemon.evs["hp"] = -1
+
+    expect(pokemon).not_to be_valid
+
+    pokemon.evs["hp"] = 252
+
+    expect(pokemon).to be_valid
+
+    pokemon.evs["hp"] = 253
+
+    expect(pokemon).not_to be_valid
+  end
 end
