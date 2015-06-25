@@ -9,16 +9,8 @@ class PokemonController < ApplicationController
     @natures = Nature.all
   end
 
-  def create
-    @pokemon = Pokemon.new(pokemon_params)
-    @pokemon.user_id = current_user.id
-    if params[:a_to_h].present?
-      @pokemon.species_id = params[:a_to_h].to_i
-    elsif params[:i_to_r].present?
-      @pokemon.species_id = params[:i_to_r].to_i
-    elsif params[:s_to_z].present?
-      @pokemon.species_id = params[:s_to_z].to_i
-    end
+  def create    
+    @pokemon = Pokemon.new pokemon_params
     params[:pokemon][:stats].each do |name, value|
       @pokemon.stats[name] = value.to_i
     end
@@ -64,6 +56,9 @@ class PokemonController < ApplicationController
       :species_id,
       stats: [:hp, :attack, :special_attack, :special_defense, :speed],
       evs: [:hp, :attack, :special_attack, :defense, :special_defense, :speed]
+    ).merge(
+      user:       current_user,
+      species_id: params[:species].values.find(&:present?),
     )
   end
 end
