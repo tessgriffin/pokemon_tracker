@@ -16,6 +16,7 @@ gem 'hurley'
 gem "responders"
 gem 'angularjs-rails'
 gem 'rails_12factor', group: :production
+gem "skylight"
 
 group :development, :test do
   gem 'pry'
