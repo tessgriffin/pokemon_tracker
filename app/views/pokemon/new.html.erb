@@ -1,62 +1,62 @@
 <div class="container team_member_index">
   <h2>Add Pokemon</h2>
+  <%= form_for @pokemon do |f| %>
   <div class="row">
-    <%= form_for @pokemon do |f| %>
-      <div class="col l6">
-        <div class="col l4 left-dropdown">
-          <%= label_tag :a_to_h %>
-          <%= select_tag(:a_to_h, options_from_collection_for_select(@species.a_h, :id, :name), include_blank: 'A to H')%>
-        </div>
-        <div class="col l4">
-          <%= label_tag :i_to_r %>
-          <%= select_tag(:i_to_r, options_from_collection_for_select(@species.i_r, :id, :name), include_blank: 'I to R')%>
-        </div>
-        <div class="col l4 right-dropdown">
-          <%= label_tag :s_to_z %>
-          <%= select_tag(:s_to_z, options_from_collection_for_select(@species.s_z, :id, :name), include_blank: 'S to Z')%>
-        </div>
+    <div class="col l6">
+      <div class="col l4 left-dropdown">
+        <%= label_tag "species_a_to_h" %>
+        <%= select_tag("species[a_to_h]", options_from_collection_for_select(@species.a_h, :id, :name), include_blank: 'A to H')%>
       </div>
-      <div class="col l6">
-        <%= f.label :nickname %>
-        <%= f.text_field :nickname %>
+      <div class="col l4">
+        <%= label_tag "species_i_to_r" %>
+        <%= select_tag("species[i_to_r]", options_from_collection_for_select(@species.i_r, :id, :name), include_blank: 'I to R')%>
       </div>
+      <div class="col l4 right-dropdown">
+        <%= label_tag "species_s_to_z" %>
+        <%= select_tag("species[s_to_z]", options_from_collection_for_select(@species.s_z, :id, :name), include_blank: 'S to Z')%>
+      </div>
+    </div>
+    <div class="col l6">
+      <%= f.label :nickname %>
+      <%= f.text_field :nickname %>
+    </div>
   </div>
   <div class="row">
-      <div class="col l6">
-        <%= f.label :nature_id %>
-        <%= f.select(:nature_id, options_from_collection_for_select(@natures, "id", "name"))%>
-      </div>
-      <div class="col l6">
-        <%= f.label :level %>
-        <%= f.number_field :level, min: 1, max: 100 %>
-      </div>
+    <div class="col l6">
+      <%= f.label :nature_id %>
+      <%= f.select(:nature_id, options_from_collection_for_select(@natures, "id", "name"))%>
+    </div>
+    <div class="col l6">
+      <%= f.label :level %>
+      <%= f.number_field :level, min: 1, max: 100 %>
+    </div>
   </div>
   <div class="row">
-      <div class="col l2">
-        <%= f.label :hp %>
-        <%= f.number_field "stats[hp]", value: 0 %>
-      </div>
-      <div class="col l2">
-        <%= f.label :attack %>
-        <%= f.number_field "stats[attack]", value: 0 %>
-      </div>
-      <div class="col l2">
-        <%= f.label :defense %>
-        <%= f.number_field "stats[defense]", value: 0 %>
-      </div>
-      <div class="col l2">
-        <%= f.label :special_attack %>
-        <%= f.number_field "stats[special_attack]", value: 0 %>
-      </div>
-      <div class="col l2">
-        <%= f.label :special_defense %>
-        <%= f.number_field "stats[special_defense]", value: 0 %>
-      </div>
-      <div class="col l2">
-        <%= f.label :speed %>
-        <%= f.number_field "stats[speed]", value: 0 %>
-      </div>
+    <div class="col l2">
+      <%= f.label :hp %>
+      <%= f.number_field "stats[hp]", value: 0 %>
+    </div>
+    <div class="col l2">
+      <%= f.label :attack %>
+      <%= f.number_field "stats[attack]", value: 0 %>
+    </div>
+    <div class="col l2">
+      <%= f.label :defense %>
+      <%= f.number_field "stats[defense]", value: 0 %>
+    </div>
+    <div class="col l2">
+      <%= f.label :special_attack %>
+      <%= f.number_field "stats[special_attack]", value: 0 %>
+    </div>
+    <div class="col l2">
+      <%= f.label :special_defense %>
+      <%= f.number_field "stats[special_defense]", value: 0 %>
+    </div>
+    <div class="col l2">
+      <%= f.label :speed %>
+      <%= f.number_field "stats[speed]", value: 0 %>
+    </div>
   </div>
-        <%= f.submit "Create Pokemon", class: "btn grey darken-2 submit_button" %>
-      <% end %>
+  <%= f.submit "Create Pokemon", class: "btn grey darken-2 submit_button" %>
+  <% end %>
 </div>
