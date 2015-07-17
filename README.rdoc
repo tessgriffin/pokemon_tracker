@@ -1,28 +1,7 @@
-== README
+=== Track Pokemon
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to my personal project for the Turing School of Software Design called Track Pokemon.
 
-Things you may want to cover:
+You can find it at https://track-pokemon.herokuapp.com/
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+This project incorporates Rails, PostgreSQL, JavaScript, JQuery, and AngularJS. I also consume the pokemon API at http://pokeapi.co/
