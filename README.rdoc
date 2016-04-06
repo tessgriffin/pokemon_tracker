@@ -1,7 +1,0 @@
-=== Track Pokemon
-
-Welcome to my personal project for the Turing School of Software Design called Track Pokemon.
-
-You can find it at https://track-pokemon.herokuapp.com/
-
-This project incorporates Rails, PostgreSQL, JavaScript, JQuery, and AngularJS. I also consume the pokemon API at http://pokeapi.co/
